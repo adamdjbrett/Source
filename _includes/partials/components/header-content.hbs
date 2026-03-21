@@ -4,13 +4,13 @@
     {{#if (eq metadata.headerStyle "Highlight")}}
       <div class="gh-header-left">
         {{#each (slice collections.posts 0 1)}}
-          {{> "post-card" this imageSizes="(max-width: 767px) calc(100vw - max(8vmin, 40px)), 640px"}}
+          {{> "post-card" this imageSizes="(max-width: 767px) calc(100vw - max(8vmin, 40px)), 640px" showTag=true}}
         {{/each}}
       </div>
 
       <div class="gh-header-middle">
         {{#each (slice collections.posts 1 4)}}
-          {{> "post-card" this}}
+          {{> "post-card" this showTag=true}}
         {{/each}}
       </div>
 
@@ -20,7 +20,7 @@
         {{else}}
           <div class="gh-featured-feed">
             {{#each (slice collections.posts 4 10)}}
-              {{> "post-card" this imageSizes="80px"}}
+              {{> "post-card" this imageSizes="80px" featured=true}}
             {{/each}}
           </div>
         {{/if}}

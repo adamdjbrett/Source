@@ -22,20 +22,10 @@
           <li class="nav-{{slugify this.label}}"><a href="{{this.url}}">{{this.label}}</a></li>
         {{/each}}
       </ul>
-      {{#if (eq metadata.navigationLayout "stacked")}}
-        {{> "search-toggle"}}
-      {{/if}}
-      {{#if (eq metadata.navigationLayout "Stacked")}}
-        {{> "search-toggle"}}
-      {{/if}}
     </nav>
 
     <div class="gh-navigation-actions">
-      {{#unless (eq metadata.navigationLayout "stacked")}}
-        {{#unless (eq metadata.navigationLayout "Stacked")}}
-          {{> "search-toggle"}}
-        {{/unless}}
-      {{/unless}}
+      {{> "search-toggle"}}
     </div>
 
   </div>

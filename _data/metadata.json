@@ -1,33 +1,35 @@
 {
-  "title": "Source",
-  "description": "Thoughtful stories and ideas from around the world.",
+  "title": "News Wave",
+  "description": "Your trusted source for wide-ranging perspectives, thought-provoking analysis, and deep insights that resonate.",
   "language": "en",
-  "author": "Editorial Desk",
-  "url": "https://example.com",
-  "logo": "https://source.ghost.io/content/images/size/w256h256/2023/08/ghost-logo-orb.png",
-  "icon": "https://source.ghost.io/content/images/size/w256h256/2023/08/ghost-logo-orb.png",
+  "author": "Kelly Brown",
+  "url": "https://source.ghost.io",
+  "logo": "",
+  "icon": "https://source.ghost.io/content/images/2023/08/ghost-logo-orb.png",
   "bodyClass": "",
   "titleFont": "Modern sans-serif",
   "bodyFont": "Modern sans-serif",
   "backgroundColor": "#ffffff",
   "navigationLayout": "stacked",
   "headerStyle": "Highlight",
-  "postFeedStyle": "Grid",
+  "postFeedStyle": "List",
   "showSidebar": true,
   "showFeaturedPosts": false,
-  "showCta": false,
+  "showCta": true,
   "showImagesInFeed": true,
   "showAuthor": true,
   "showPublishDate": true,
   "navigation": [
-    { "label": "Features", "url": "/" },
-    { "label": "News", "url": "/#latest" },
-    { "label": "About", "url": "/about/" },
-    { "label": "Contact", "url": "/contact/" },
-    { "label": "Tags", "url": "/tags/" }
+    { "label": "Environment", "url": "/tag/environment/" },
+    { "label": "Economy", "url": "/tag/economy/" },
+    { "label": "Health", "url": "/tag/health/" },
+    { "label": "Culture", "url": "/tag/culture/" },
+    { "label": "About", "url": "/about/" }
   ],
   "secondaryNavigation": [
-    { "label": "Feed", "url": "/feed/feed.xml" },
-    { "label": "Sitemap", "url": "/sitemap.xml" }
+    { "label": "Advertise", "url": "/" },
+    { "label": "Sponsor", "url": "/" },
+    { "label": "Terms & conditions", "url": "/" },
+    { "label": "Data & privacy", "url": "/" }
   ]
 }

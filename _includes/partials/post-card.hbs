@@ -1,4 +1,4 @@
-<article class="gh-card {{#unless @root.metadata.showImagesInFeed}}no-image{{/unless}} {{#unless data.feature_image}}no-image{{/unless}}">
+<article class="gh-card post{{#if featured}} featured{{/if}}{{#unless @root.metadata.showImagesInFeed}} no-image{{/unless}}{{#unless data.feature_image}} no-image{{/unless}}{{#with (primaryTag data.tags)}} tag-{{slugify this}}{{/with}}">
   <a class="gh-card-link" href="{{url}}">
     {{#if data.feature_image}}
       <figure class="gh-card-image">
@@ -10,9 +10,11 @@
       </figure>
     {{/if}}
     <div class="gh-card-wrapper">
-      {{#with (primaryTag data.tags)}}
-        <p class="gh-card-tag">{{this}}</p>
-      {{/with}}
+      {{#if (eq showTag true)}}
+        {{#with (primaryTag data.tags)}}
+          <p class="gh-card-tag">{{this}}</p>
+        {{/with}}
+      {{/if}}
       <h3 class="gh-card-title is-title">{{data.title}}</h3>
       {{#if data.description}}
         <p class="gh-card-excerpt is-body">{{data.description}}</p>
