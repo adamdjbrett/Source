@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="{{metadata.language}}">
+<head>
+  <title>{{#if title}}{{title}} | {{metadata.title}}{{else}}{{metadata.title}}{{/if}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{#if description}}{{description}}{{else}}{{metadata.description}}{{/if}}">
+  <meta name="generator" content="{{ eleventy.generator }}">
+  <link rel="icon" href="{{#if metadata.icon}}{{metadata.icon}}{{else}}/favicon.ico{{/if}}" sizes="any">
+  <link rel="apple-touch-icon" href="{{#if metadata.icon}}{{metadata.icon}}{{else}}/favicon.ico{{/if}}">
+  <link rel="alternate" type="application/atom+xml" title="{{metadata.title}} Feed" href="/feed/feed.xml">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+  <link rel="preload" as="style" href='{{asset "built/screen.css"}}'>
+  <link rel="preload" as="script" href='{{asset "built/source.js"}}'>
+
+  {{> "typography/fonts"}}
+
+  <style>
+    :root {
+      --background-color: {{#if metadata.backgroundColor}}{{metadata.backgroundColor}}{{else}}#ffffff{{/if}};
+    }
+  </style>
+
+  <script>
+    var accentColor = getComputedStyle(document.documentElement).getPropertyValue("--background-color");
+    accentColor = accentColor.trim().replace("#", "");
+
+    if (accentColor.length === 3) {
+      accentColor = accentColor[0] + accentColor[0] + accentColor[1] + accentColor[1] + accentColor[2] + accentColor[2];
+    }
+
+    var r = parseInt(accentColor.substr(0, 2), 16);
+    var g = parseInt(accentColor.substr(2, 2), 16);
+    var b = parseInt(accentColor.substr(4, 2), 16);
+    var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+    var textColor = yiq >= 128 ? "dark" : "light";
+
+    document.documentElement.className = "has-" + textColor + "-text";
+  </script>
+
+  <link rel="stylesheet" type="text/css" href='{{asset "built/screen.css"}}'>
+</head>
+<body class="{{bodyClass}} {{#if (eq metadata.titleFont "Elegant serif")}}has-serif-title{{else}}{{#if (eq metadata.titleFont "Consistent mono")}}has-mono-title{{else}}has-sans-title{{/if}}{{/if}} {{#if (eq metadata.bodyFont "Elegant serif")}}has-serif-body{{else}}has-sans-body{{/if}}">
+  <div class="gh-viewport">
+
+    {{> "components/navigation"}}
+
+    {{{ content }}}
+
+    {{> "components/footer"}}
+
+  </div>
+
+  {{> "lightbox"}}
+
+  <script src='{{asset "built/source.js"}}'></script>
+  <div class="h-card" style="display:none">
+    <a class="p-name u-url" href="{{metadata.url}}">{{metadata.title}}</a>
+    <img class="u-photo" src="{{#if metadata.icon}}{{metadata.icon}}{{else}}/favicon.ico{{/if}}" alt="{{metadata.title}}">
+    <p class="p-note">{{metadata.description}}</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{{> "typography/sans"}}
+
+{{#if (eq metadata.titleFont "Modern sans-serif")}}
+  {{#if (eq metadata.bodyFont "Elegant serif")}}
+    {{> "typography/serif"}}
+  {{/if}}
+{{else}}
+  {{#if (eq metadata.titleFont "Elegant serif")}}
+    {{> "typography/serif"}}
+  {{else}}
+    {{> "typography/mono"}}
+    {{#if (eq metadata.bodyFont "Elegant serif")}}
+      {{> "typography/serif"}}
+    {{/if}}
+  {{/if}}
+{{/if}}

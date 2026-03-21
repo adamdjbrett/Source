@@ -1,0 +1,24 @@
+---
+layout: layouts/default.hbs
+title: Tags
+permalink: /tags/index.html
+bodyClass: tag-template
+---
+<main class="gh-main">
+  <section class="gh-container is-grid gh-outer">
+    <div class="gh-container-inner gh-inner">
+      <h1 class="gh-container-title">Tags</h1>
+      <div class="gh-feed">
+        {{#each collections.tagList}}
+          <article class="gh-card no-image">
+            <a class="gh-card-link" href="/tags/#{{slugify this}}">
+              <div class="gh-card-wrapper">
+                <h3 class="gh-card-title is-title">{{this}}</h3>
+              </div>
+            </a>
+          </article>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+</main>

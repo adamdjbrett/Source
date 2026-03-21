@@ -1,0 +1,42 @@
+<header id="gh-navigation" class="gh-navigation is-{{#if (eq metadata.navigationLayout "Logo on the left")}}left-logo{{else}}{{#if (eq metadata.navigationLayout "stacked")}}stacked{{else}}{{#if (eq metadata.navigationLayout "Stacked")}}stacked{{else}}middle-logo{{/if}}{{/if}}{{/if}} gh-outer">
+  <div class="gh-navigation-inner gh-inner">
+
+    <div class="gh-navigation-brand">
+      <a class="gh-navigation-logo is-title" href="/">
+        {{#if metadata.logo}}
+          <img src="{{metadata.logo}}" alt="{{metadata.title}}">
+        {{else}}
+          {{metadata.title}}
+        {{/if}}
+      </a>
+      {{> "search-toggle"}}
+      <button class="gh-burger gh-icon-button" aria-label="Menu">
+        {{> "icons/burger"}}
+        {{> "icons/close"}}
+      </button>
+    </div>
+
+    <nav class="gh-navigation-menu">
+      <ul class="nav">
+        {{#each metadata.navigation}}
+          <li class="nav-{{slugify this.label}}"><a href="{{this.url}}">{{this.label}}</a></li>
+        {{/each}}
+      </ul>
+      {{#if (eq metadata.navigationLayout "stacked")}}
+        {{> "search-toggle"}}
+      {{/if}}
+      {{#if (eq metadata.navigationLayout "Stacked")}}
+        {{> "search-toggle"}}
+      {{/if}}
+    </nav>
+
+    <div class="gh-navigation-actions">
+      {{#unless (eq metadata.navigationLayout "stacked")}}
+        {{#unless (eq metadata.navigationLayout "Stacked")}}
+          {{> "search-toggle"}}
+        {{/unless}}
+      {{/unless}}
+    </div>
+
+  </div>
+</header>

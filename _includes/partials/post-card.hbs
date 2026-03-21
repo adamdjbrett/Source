@@ -1,0 +1,40 @@
+<article class="gh-card {{#unless @root.metadata.showImagesInFeed}}no-image{{/unless}} {{#unless data.feature_image}}no-image{{/unless}}">
+  <a class="gh-card-link" href="{{url}}">
+    {{#if data.feature_image}}
+      <figure class="gh-card-image">
+        <img
+          src="{{data.feature_image}}"
+          alt="{{#if data.feature_image_alt}}{{data.feature_image_alt}}{{else}}{{data.title}}{{/if}}"
+          {{#if lazyLoad}}loading="lazy"{{/if}}
+        >
+      </figure>
+    {{/if}}
+    <div class="gh-card-wrapper">
+      {{#with (primaryTag data.tags)}}
+        <p class="gh-card-tag">{{this}}</p>
+      {{/with}}
+      <h3 class="gh-card-title is-title">{{data.title}}</h3>
+      {{#if data.description}}
+        <p class="gh-card-excerpt is-body">{{data.description}}</p>
+      {{else}}
+        {{#if templateContent}}
+          <p class="gh-card-excerpt is-body">{{excerpt templateContent 165}}</p>
+        {{/if}}
+      {{/if}}
+      <footer class="gh-card-meta">
+        {{#if @root.metadata.showAuthor}}
+          {{#if data.author}}
+            <span class="gh-card-author">By {{data.author}}</span>
+          {{else}}
+            {{#if @root.metadata.author}}
+              <span class="gh-card-author">By {{@root.metadata.author}}</span>
+            {{/if}}
+          {{/if}}
+        {{/if}}
+        {{#if @root.metadata.showPublishDate}}
+          <time class="gh-card-date" datetime="{{htmlDateString date}}">{{readableDate date "dd MMM yyyy"}}</time>
+        {{/if}}
+      </footer>
+    </div>
+  </a>
+</article>

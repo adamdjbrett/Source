@@ -1,0 +1,10 @@
+---
+layout: layouts/default.hbs
+title: Home
+bodyClass: home-template
+---
+{{> "components/header"}}
+
+{{> "components/cta"}}
+
+{{> "components/post-list" feed="home" showTitle=true showSidebar=metadata.showSidebar}}

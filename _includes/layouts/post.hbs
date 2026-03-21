@@ -1,0 +1,40 @@
+---
+layout: layouts/default.hbs
+bodyClass: post-template
+---
+<main class="gh-main">
+  <article class="gh-article h-entry">
+
+    <header class="gh-article-header gh-canvas">
+      {{#with (primaryTag tags)}}
+        <a class="gh-article-tag" href="/tags/#{{slugify this}}">{{this}}</a>
+      {{/with}}
+      <h1 class="gh-article-title is-title p-name">{{title}}</h1>
+      {{#if description}}
+        <p class="gh-article-excerpt is-body">{{description}}</p>
+      {{/if}}
+
+      <div class="gh-article-meta">
+        <div class="gh-article-meta-wrapper">
+          <h4 class="gh-article-author-name p-author h-card">
+            <a class="p-name u-url" href="{{metadata.url}}">{{#if author}}{{author}}{{else}}{{metadata.author}}{{/if}}</a>
+          </h4>
+          <div class="gh-article-meta-content">
+            <time class="gh-article-meta-date dt-published" datetime="{{htmlDateString date}}">{{readableDate date "dd MMM yyyy"}}</time>
+          </div>
+        </div>
+      </div>
+      {{#if url}}
+        <a class="u-url" href="{{metadata.url}}{{url}}" style="display:none">{{metadata.url}}{{url}}</a>
+      {{/if}}
+
+      {{> "feature-image"}}
+
+    </header>
+
+    <section class="gh-content gh-canvas is-body e-content">
+      {{{ content }}}
+    </section>
+
+  </article>
+</main>

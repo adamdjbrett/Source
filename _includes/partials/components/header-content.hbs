@@ -1,0 +1,37 @@
+<section class="gh-header is-{{#if (eq metadata.headerStyle "Magazine")}}magazine{{else}}{{#if (eq metadata.headerStyle "Highlight")}}highlight{{else}}classic{{/if}}{{/if}} gh-outer">
+  <div class="gh-header-inner gh-inner">
+
+    {{#if (eq metadata.headerStyle "Highlight")}}
+      <div class="gh-header-left">
+        {{#each (slice collections.posts 0 1)}}
+          {{> "post-card" this imageSizes="(max-width: 767px) calc(100vw - max(8vmin, 40px)), 640px"}}
+        {{/each}}
+      </div>
+
+      <div class="gh-header-middle">
+        {{#each (slice collections.posts 1 4)}}
+          {{> "post-card" this}}
+        {{/each}}
+      </div>
+
+      <div class="gh-header-right">
+        {{#if metadata.showFeaturedPosts}}
+          {{> "components/featured" showFeatured=metadata.showFeaturedPosts limit=6}}
+        {{else}}
+          <div class="gh-featured-feed">
+            {{#each (slice collections.posts 4 10)}}
+              {{> "post-card" this imageSizes="80px"}}
+            {{/each}}
+          </div>
+        {{/if}}
+      </div>
+    {{else}}
+      <div class="gh-header-left">
+        {{#each (slice collections.posts 0 1)}}
+          {{> "post-card" this imageSizes="(max-width: 767px) calc(100vw - max(8vmin, 40px)), 640px"}}
+        {{/each}}
+      </div>
+    {{/if}}
+
+  </div>
+</section>

@@ -1,0 +1,45 @@
+<section id="latest" class="gh-container is-{{#if (eq @root.metadata.postFeedStyle "List")}}list{{else}}grid{{/if}}{{#if showSidebar}} has-sidebar{{/if}}{{#unless @root.metadata.showImagesInFeed}} no-image{{/unless}} gh-outer">
+  <div class="gh-container-inner gh-inner">
+
+    {{#if showTitle}}
+      <h2 class="gh-container-title">{{#if title}}{{title}}{{else}}Latest{{/if}}</h2>
+    {{/if}}
+
+    <main class="gh-main">
+      <div class="gh-feed">
+        {{#if (eq feed "home")}}
+          {{#if (gt collections.posts.length 10)}}
+            {{#each (slice collections.posts 10)}}
+              {{> "post-card" this lazyLoad=true}}
+            {{/each}}
+          {{else}}
+            {{#each (slice collections.posts 4)}}
+              {{> "post-card" this lazyLoad=true}}
+            {{/each}}
+          {{/if}}
+        {{else}}
+          {{#each collections.posts}}
+            {{> "post-card" this lazyLoad=true}}
+          {{/each}}
+        {{/if}}
+      </div>
+    </main>
+
+    {{#if showSidebar}}
+      <aside class="gh-sidebar">
+        <div class="gh-sidebar-inner">
+          <section class="gh-about">
+            {{#if @root.metadata.icon}}
+              <img class="gh-about-icon" src="{{@root.metadata.icon}}" alt="{{@root.metadata.title}}" loading="lazy">
+            {{/if}}
+            <h3 class="gh-about-title is-title">{{@root.metadata.title}}</h3>
+            {{#if @root.metadata.description}}
+              <p class="gh-about-description is-body">{{@root.metadata.description}}</p>
+            {{/if}}
+          </section>
+        </div>
+      </aside>
+    {{/if}}
+
+  </div>
+</section>

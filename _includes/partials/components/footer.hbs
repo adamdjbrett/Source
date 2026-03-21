@@ -1,0 +1,25 @@
+<footer class="gh-footer gh-outer">
+  <div class="gh-footer-inner gh-inner">
+
+    <div class="gh-footer-bar">
+      <span class="gh-footer-logo is-title">
+        {{#if metadata.logo}}
+          <img src="{{metadata.logo}}" alt="{{metadata.title}}">
+        {{else}}
+          {{metadata.title}}
+        {{/if}}
+      </span>
+      <nav class="gh-footer-menu">
+        <ul class="nav">
+          {{#each metadata.secondaryNavigation}}
+            <li class="nav-{{slugify this.label}}"><a href="{{this.url}}">{{this.label}}</a></li>
+          {{/each}}
+        </ul>
+      </nav>
+      <div class="gh-footer-copyright">
+        Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+      </div>
+    </div>
+
+  </div>
+</footer>

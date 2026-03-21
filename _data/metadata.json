@@ -1,0 +1,33 @@
+{
+  "title": "Source",
+  "description": "Thoughtful stories and ideas from around the world.",
+  "language": "en",
+  "author": "Editorial Desk",
+  "url": "https://example.com",
+  "logo": "https://source.ghost.io/content/images/size/w256h256/2023/08/ghost-logo-orb.png",
+  "icon": "https://source.ghost.io/content/images/size/w256h256/2023/08/ghost-logo-orb.png",
+  "bodyClass": "",
+  "titleFont": "Modern sans-serif",
+  "bodyFont": "Modern sans-serif",
+  "backgroundColor": "#ffffff",
+  "navigationLayout": "stacked",
+  "headerStyle": "Highlight",
+  "postFeedStyle": "Grid",
+  "showSidebar": true,
+  "showFeaturedPosts": false,
+  "showCta": false,
+  "showImagesInFeed": true,
+  "showAuthor": true,
+  "showPublishDate": true,
+  "navigation": [
+    { "label": "Features", "url": "/" },
+    { "label": "News", "url": "/#latest" },
+    { "label": "About", "url": "/about/" },
+    { "label": "Contact", "url": "/contact/" },
+    { "label": "Tags", "url": "/tags/" }
+  ],
+  "secondaryNavigation": [
+    { "label": "Feed", "url": "/feed/feed.xml" },
+    { "label": "Sitemap", "url": "/sitemap.xml" }
+  ]
+}

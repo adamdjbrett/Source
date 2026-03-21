@@ -1,0 +1,11 @@
+{{#if metadata.showCta}}
+  <section class="gh-cta gh-outer">
+    <div class="gh-cta-inner gh-inner">
+      <div class="gh-cta-content">
+        <h2 class="gh-cta-title is-title">{{metadata.title}}</h2>
+        <p class="gh-cta-description is-body">{{metadata.description}}</p>
+      </div>
+      {{> "email-subscription" email_field_id="cta-email"}}
+    </div>
+  </section>
+{{/if}}
